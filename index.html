@@ -3,111 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MUU Steakhouse | Una Experiencia Para Ti</title>
+    <title>MUU Steakhouse | Carnicería Premium Paysandú</title>
     <style>
         :root {
-            --gold: #c5a059;
-            --dark: #0a0a0a;
-            --gray: #1a1a1a;
-            --soft-white: #f4f4f4;
+            --gold: #d4af37;
+            --dark-bg: #050505;
+            --card-bg: #121212;
+            --text-color: #e0e0e0;
         }
 
         body {
-            font-family: 'Georgia', serif;
-            background-color: var(--dark);
-            color: var(--soft-white);
+            font-family: 'Playfair Display', serif;
+            background-color: var(--dark-bg);
+            color: var(--text-color);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
         header {
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(to bottom, #1a1a1a, #0a0a0a);
-            border-bottom: 2px solid var(--gold);
+            padding: 80px 20px;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://i.ibb.co/9mWr3ZkT/IMG-20260424-WA0063.jpg');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 3px solid var(--gold);
         }
 
-        h1 { font-size: 2.8rem; letter-spacing: 5px; color: var(--gold); margin: 0; text-transform: uppercase; }
-        .subtitle { font-style: italic; color: #888; font-size: 1.2rem; margin-top: 10px; }
+        h1 { font-size: 3rem; letter-spacing: 8px; color: var(--gold); margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); text-transform: uppercase; }
+        .tagline { font-style: italic; font-size: 1.2rem; color: #fff; margin-top: 15px; letter-spacing: 2px; }
 
-        /* Contenedor Principal */
-        .main-content {
-            max-width: 900px;
+        .container {
+            max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* Bloques de Texto Persuasivo */
-        .text-block {
-            text-align: center;
             padding: 40px 20px;
-            max-width: 700px;
         }
 
-        .text-block h2 {
+        .copy-section {
+            text-align: center;
+            margin: 60px 0;
+            padding: 20px;
+        }
+
+        .copy-section h2 {
             color: var(--gold);
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
         }
 
-        .text-block p {
-            font-size: 1.1rem;
-            color: #ccc;
+        .copy-section p {
+            font-size: 1.2rem;
+            color: #bbb;
+            max-width: 650px;
+            margin: 0 auto;
         }
 
-        /* Cuadros de Fotos Individuales */
+        /* Marcos de Fotos */
         .photo-frame {
             width: 100%;
             height: 450px;
-            border-radius: 4px;
+            border: 1px solid #222;
+            border-radius: 5px;
             overflow: hidden;
-            border: 1px solid var(--gold);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.9);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
             background: #000;
-            margin: 20px 0;
         }
 
         .photo-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: opacity 1s ease-in-out;
+            transition: opacity 1.5s ease;
         }
 
-        .cta-button {
+        .location-box {
+            background: var(--card-bg);
+            padding: 40px;
+            border-top: 2px solid var(--gold);
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .btn-whatsapp {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 18px 40px;
             background-color: var(--gold);
-            color: var(--dark);
-            padding: 15px 30px;
+            color: black;
             text-decoration: none;
             font-weight: bold;
-            text-transform: uppercase;
             border-radius: 2px;
-            margin-top: 30px;
             transition: 0.3s;
-            display: inline-block;
+            text-transform: uppercase;
+            font-size: 1.1rem;
         }
 
-        .cta-button:hover {
-            background-color: #e2be7a;
+        .btn-whatsapp:hover {
+            background-color: #f1c40f;
             transform: scale(1.05);
         }
 
         footer {
-            margin-top: 80px;
-            padding: 40px;
-            background: #050505;
+            padding: 60px 20px;
             text-align: center;
-            border-top: 1px solid var(--gray);
-            width: 100%;
+            font-size: 0.9rem;
+            color: #444;
+            background: #000;
         }
 
         @media (max-width: 600px) {
             h1 { font-size: 2rem; }
-            .photo-frame { height: 300px; }
+            .photo-frame { height: 350px; }
         }
     </style>
 </head>
@@ -115,44 +122,85 @@
 
     <header>
         <h1>MUU STEAKHOUSE</h1>
-        <p class="subtitle">Donde la tradición se encuentra con la exclusividad</p>
+        <p class="tagline">EL ARTE DEL CORTE PREMIUM</p>
     </header>
 
-    <div class="main-content">
+    <div class="container">
         
-        <div class="text-block">
-            <h2>Un corte diseñado para su paladar</h2>
-            <p>En MUU Steakhouse, entendemos que no busca simplemente comida, sino un momento de distinción. Seleccionamos cada pieza pensando en la experiencia que usted merece tener en su mesa.</p>
+        <div class="copy-section">
+            <h2>La búsqueda de la perfección</h2>
+            <p>En MUU Steakhouse, entendemos que no busca simplemente un trozo de carne, sino una experiencia gastronómica que comience en su hogar. Seleccionamos cada corte pensando exclusivamente en el momento en que usted disfrute de la excelencia.</p>
         </div>
 
-        <div class="photo-frame" id="box1"></div>
+        <div class="photo-frame" id="display1"></div>
 
-        <div class="text-block">
-            <h2>La Maestría de Ituzaingó 898</h2>
-            <p>Al cruzar nuestra puerta en Paysandú, usted deja de ser un cliente para convertirse en nuestro invitado de honor. Nuestro servicio personalizado garantiza que cada milanesa artesanal y cada corte premium sea exactamente lo que usted soñó.</p>
+        <div class="copy-section">
+            <h2>Maestro de su propia mesa</h2>
+            <p>Usted es el protagonista de nuestra historia. Nuestro servicio no termina en la entrega; le asesoramos personalmente sobre el punto ideal para cada corte. Queremos que se sienta seguro de llevar a su mesa la máxima expresión del sabor artesanal.</p>
         </div>
 
-        <div class="photo-frame" id="box2"></div>
+        <div class="photo-frame" id="display2"></div>
 
-        <div class="text-block">
-            <h2>Siéntase en casa, coma como un rey</h2>
-            <p>Nuestra fusión con La Fábrica de la Milanesa no es solo negocio, es pasión por el detalle. Le invitamos a descubrir el aroma de la verdadera calidad que solo se encuentra cuando el respeto por la carne es nuestra prioridad absoluta.</p>
+        <div class="copy-section">
+            <h2>Una invitación al buen gusto</h2>
+            <p>Si usted valora la procedencia y el cuidado de lo que come, MUU Steakhouse es su lugar. Visite nuestra carnicería premium en Ituzaingó 898 y permítanos mostrarle la diferencia entre un corte común y una obra de arte culinaria.</p>
         </div>
 
-        <div class="photo-frame" id="box3"></div>
+        <div class="photo-frame" id="display3"></div>
 
-        <a href="https://wa.me/TUNUMERO" class="cta-button">Reserve su Corte Exclusivo</a>
+        <div class="location-box">
+            <p style="color: var(--gold); font-size: 1.6rem; margin: 0; font-weight: bold;">📍 Ituzaingó 898, Paysandú</p>
+            <p style="margin-top: 15px; font-size: 1.2rem;">Le esperamos para brindarle una atención exclusiva y personalizada.</p>
+            <a href="https://wa.me/59896643887" class="btn-whatsapp">Hacer pedido por WhatsApp</a>
+        </div>
+
     </div>
 
     <footer>
-        <p>📍 Ituzaingó 898, Paysandú, Uruguay</p>
-        <p style="font-size: 0.8rem; color: #555;">&copy; 2026 MUU Steakhouse & La Fábrica de la Milanesa</p>
+        &copy; 2026 MUU STEAKHOUSE PAYSANDÚ | CALIDAD INSUPERABLE EN CADA CORTE
     </footer>
 
     <script>
+        // Galería de imágenes completa
         const images = [
             "https://i.ibb.co/9mWr3ZkT/IMG-20260424-WA0063.jpg",
-            "https://i.ibb.co/G4yT7zJS/IMG-20260424-WA0062.jpg",
-            "https://i.ibb.co/0R8JGDS3/IMG-20260424-WA0061.jpg",
-            "https://i.ibb.co/Wj1dp
-        
+            "https://i.ibb.co/Wj1dpJc/IMG-20260424-WA0060.jpg",
+            "https://i.ibb.co/bRDv80QL/IMG-20260424-WA0058.jpg",
+            "https://i.ibb.co/nMXG041N/IMG-20260424-WA0059.jpg",
+            "https://i.ibb.co/Rp9zWcHT/IMG-20260424-WA0054.jpg",
+            "https://i.ibb.co/chF3j7Gk/IMG-20260424-WA0057.jpg",
+            "https://i.ibb.co/LdBY1RVB/IMG-20260424-WA0053.jpg",
+            "https://i.ibb.co/99xWhPdw/IMG-20260424-WA0047.jpg",
+            "https://i.ibb.co/LDHDQhW2/IMG-20260424-WA0046.jpg",
+            "https://i.ibb.co/rfNTtVRS/IMG-20260424-WA0044.jpg",
+            "https://i.ibb.co/gbJ5qHhW/IMG-20260424-WA0045.jpg",
+            "https://i.ibb.co/ZR9wvp2P/IMG-20260424-WA0051.jpg",
+            "https://i.ibb.co/Qv26g0j9/IMG-20260424-WA0042.jpg"
+        ];
+
+        let offset = 0;
+
+        function updatePhotos() {
+            const frames = ['display1', 'display2', 'display3'];
+            frames.forEach((id, i) => {
+                const container = document.getElementById(id);
+                const imgIndex = (offset + i) % images.length;
+                container.innerHTML = `<img src="${images[imgIndex]}" style="opacity: 0.1">`;
+                
+                setTimeout(() => {
+                    const img = container.querySelector('img');
+                    if(img) img.style.opacity = '1';
+                }, 100);
+            });
+        }
+
+        // Rotación automática cada 5 segundos
+        setInterval(() => {
+            offset = (offset + 1) % images.length;
+            updatePhotos();
+        }, 5000);
+
+        updatePhotos();
+    </script>
+</body>
+</html>
