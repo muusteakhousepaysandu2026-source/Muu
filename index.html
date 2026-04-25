@@ -3,84 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MUU Steakhouse | Premium Cuts</title>
+    <title>MUU Steakhouse | Una Experiencia Para Ti</title>
     <style>
         :root {
             --gold: #c5a059;
             --dark: #0a0a0a;
             --gray: #1a1a1a;
+            --soft-white: #f4f4f4;
         }
 
         body {
             font-family: 'Georgia', serif;
             background-color: var(--dark);
-            color: white;
+            color: var(--soft-white);
             margin: 0;
             padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(to bottom, #1a1a1a, #0a0a0a);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        h1 { font-size: 2.8rem; letter-spacing: 5px; color: var(--gold); margin: 0; text-transform: uppercase; }
+        .subtitle { font-style: italic; color: #888; font-size: 1.2rem; margin-top: 10px; }
+
+        /* Contenedor Principal */
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        header {
+        /* Bloques de Texto Persuasivo */
+        .text-block {
             text-align: center;
             padding: 40px 20px;
-            background: linear-gradient(to bottom, #1a1a1a, #0a0a0a);
+            max-width: 700px;
+        }
+
+        .text-block h2 {
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .text-block p {
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        /* Cuadros de Fotos Individuales */
+        .photo-frame {
             width: 100%;
-            border-bottom: 2px solid var(--gold);
-        }
-
-        h1 { font-size: 2.5rem; letter-spacing: 4px; color: var(--gold); margin: 0; }
-        p.subtitle { font-style: italic; color: #888; margin-top: 10px; }
-
-        /* Galería de 3 Cuadros */
-        .gallery-wrapper {
-            width: 95%;
-            max-width: 1100px;
-            margin: 40px 0;
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-        }
-
-        .photo-box {
-            flex: 1;
-            height: 350px;
-            border-radius: 8px;
+            height: 450px;
+            border-radius: 4px;
             overflow: hidden;
-            border: 1px solid #333;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+            border: 1px solid var(--gold);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.9);
             background: #000;
+            margin: 20px 0;
         }
 
-        .photo-box img {
+        .photo-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: opacity 0.8s ease-in-out;
+            transition: opacity 1s ease-in-out;
         }
 
-        .info-section {
-            text-align: center;
-            max-width: 600px;
-            padding: 20px;
+        .cta-button {
+            background-color: var(--gold);
+            color: var(--dark);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 2px;
+            margin-top: 30px;
+            transition: 0.3s;
+            display: inline-block;
         }
 
-        .address { color: var(--gold); font-weight: bold; margin-bottom: 5px; }
-        
+        .cta-button:hover {
+            background-color: #e2be7a;
+            transform: scale(1.05);
+        }
+
         footer {
-            margin-top: 50px;
-            padding: 20px;
-            font-size: 0.8rem;
-            color: #444;
-            border-top: 1px solid #222;
-            width: 100%;
+            margin-top: 80px;
+            padding: 40px;
+            background: #050505;
             text-align: center;
+            border-top: 1px solid var(--gray);
+            width: 100%;
         }
 
         @media (max-width: 600px) {
-            .gallery-wrapper { flex-direction: column; align-items: center; }
-            .photo-box { width: 100%; height: 250px; }
+            h1 { font-size: 2rem; }
+            .photo-frame { height: 300px; }
         }
     </style>
 </head>
@@ -88,66 +115,44 @@
 
     <header>
         <h1>MUU STEAKHOUSE</h1>
-        <p class="subtitle">La Fusión de la Excelencia: Carnes Premium & La Fábrica de la Milanesa</p>
+        <p class="subtitle">Donde la tradición se encuentra con la exclusividad</p>
     </header>
 
-    <div class="info-section">
-        <p class="address">📍 Ituzaingó 898, Paysandú</p>
-        <p>Experimenta el sabor artesanal en cada corte.</p>
-    </div>
+    <div class="main-content">
+        
+        <div class="text-block">
+            <h2>Un corte diseñado para su paladar</h2>
+            <p>En MUU Steakhouse, entendemos que no busca simplemente comida, sino un momento de distinción. Seleccionamos cada pieza pensando en la experiencia que usted merece tener en su mesa.</p>
+        </div>
 
-    <div class="gallery-wrapper">
-        <div class="photo-box" id="box1"></div>
-        <div class="photo-box" id="box2"></div>
-        <div class="photo-box" id="box3"></div>
+        <div class="photo-frame" id="box1"></div>
+
+        <div class="text-block">
+            <h2>La Maestría de Ituzaingó 898</h2>
+            <p>Al cruzar nuestra puerta en Paysandú, usted deja de ser un cliente para convertirse en nuestro invitado de honor. Nuestro servicio personalizado garantiza que cada milanesa artesanal y cada corte premium sea exactamente lo que usted soñó.</p>
+        </div>
+
+        <div class="photo-frame" id="box2"></div>
+
+        <div class="text-block">
+            <h2>Siéntase en casa, coma como un rey</h2>
+            <p>Nuestra fusión con La Fábrica de la Milanesa no es solo negocio, es pasión por el detalle. Le invitamos a descubrir el aroma de la verdadera calidad que solo se encuentra cuando el respeto por la carne es nuestra prioridad absoluta.</p>
+        </div>
+
+        <div class="photo-frame" id="box3"></div>
+
+        <a href="https://wa.me/TUNUMERO" class="cta-button">Reserve su Corte Exclusivo</a>
     </div>
 
     <footer>
-        &copy; 2026 MUU Steakhouse Paysandú - Calidad Garantizada
+        <p>📍 Ituzaingó 898, Paysandú, Uruguay</p>
+        <p style="font-size: 0.8rem; color: #555;">&copy; 2026 MUU Steakhouse & La Fábrica de la Milanesa</p>
     </footer>
 
     <script>
-        // Tus fotos de ImgBB integradas profesionalmente
         const images = [
             "https://i.ibb.co/9mWr3ZkT/IMG-20260424-WA0063.jpg",
             "https://i.ibb.co/G4yT7zJS/IMG-20260424-WA0062.jpg",
             "https://i.ibb.co/0R8JGDS3/IMG-20260424-WA0061.jpg",
-            "https://i.ibb.co/Wj1dpJc/IMG-20260424-WA0060.jpg",
-            "https://i.ibb.co/bRDv80QL/IMG-20260424-WA0058.jpg",
-            "https://i.ibb.co/nMXG041N/IMG-20260424-WA0059.jpg",
-            "https://i.ibb.co/Rp9zWcHT/IMG-20260424-WA0054.jpg",
-            "https://i.ibb.co/chF3j7Gk/IMG-20260424-WA0057.jpg",
-            "https://i.ibb.co/LdBY1RVB/IMG-20260424-WA0053.jpg",
-            "https://i.ibb.co/99xWhPdw/IMG-20260424-WA0047.jpg",
-            "https://i.ibb.co/LDHDQhW2/IMG-20260424-WA0046.jpg",
-            "https://i.ibb.co/rfNTtVRS/IMG-20260424-WA0044.jpg",
-            "https://i.ibb.co/gbJ5qHhW/IMG-20260424-WA0045.jpg",
-            "https://i.ibb.co/ZR9wvp2P/IMG-20260424-WA0051.jpg",
-            "https://i.ibb.co/Qv26g0j9/IMG-20260424-WA0042.jpg"
-        ];
-
-        let offset = 0;
-
-        function updateDisplay() {
-            const boxes = ['box1', 'box2', 'box3'];
-            boxes.forEach((id, i) => {
-                const imgIndex = (offset + i) % images.length;
-                const container = document.getElementById(id);
-                container.innerHTML = `<img src="${images[imgIndex]}" style="opacity: 0">`;
-                // Efecto de suavizado al cambiar
-                setTimeout(() => {
-                    container.querySelector('img').style.opacity = '1';
-                }, 50);
-            });
-        }
-
-        function rotate() {
-            offset = (offset + 1) % images.length;
-            updateDisplay();
-        }
-
-        updateDisplay();
-        setInterval(rotate, 4000); // Rota cada 4 segundos
-    </script>
-</body>
-</html>
+            "https://i.ibb.co/Wj1dp
+        
