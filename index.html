@@ -3,304 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MUU Steak House - Paysandú</title>
+    <title>MUU Steak House | Carnicería Premium</title>
     <style>
         :root {
-            --primary-yellow: #ffcc00; /* El amarillo MUU */
-            --pure-black: #000000;
-            --dark-gray: #121212;
-            --card-bg: #1e1e1e;
+            --muu-yellow: #ffcc00;
+            --muu-black: #000000;
+            --muu-gray: #1a1a1a;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--pure-black);
-            color: var(--primary-yellow);
+            background-color: var(--muu-black);
+            color: #fff;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Banner Promocional */
-        .promo-banner {
-            background: var(--primary-yellow);
-            color: var(--pure-black);
             text-align: center;
-            padding: 12px;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
 
-        /* Header con Logo */
-        header {
-            padding: 50px 20px;
-            text-align: center;
-            background: var(--pure-black);
-            border-bottom: 3px solid var(--primary-yellow);
-        }
+        /* Banner y Header */
+        .top-banner { background: var(--muu-yellow); color: #000; padding: 10px; font-weight: bold; text-transform: uppercase; font-size: 14px; }
+        header { padding: 40px 20px; border-bottom: 2px solid var(--muu-yellow); }
+        .logo { max-width: 220px; filter: drop-shadow(0 0 8px rgba(255,204,0,0.3)); }
 
-        .logo {
-            max-width: 260px;
-            height: auto;
-            filter: drop-shadow(0 0 10px rgba(255, 204, 0, 0.4));
-        }
-
-        .container {
-            max-width: 1100px;
+        /* Bloques de Texto Informativos */
+        .info-block {
+            padding: 60px 20px;
+            max-width: 800px;
             margin: auto;
-            padding: 20px;
         }
+        .info-block h2 { color: var(--muu-yellow); text-transform: uppercase; font-size: 28px; margin-bottom: 20px; }
+        .info-block p { font-size: 18px; line-height: 1.8; color: #ccc; }
 
-        h2 {
-            text-align: center;
-            text-transform: uppercase;
-            font-size: 1.8rem;
-            margin-top: 50px;
-            letter-spacing: 2px;
-            color: var(--primary-yellow);
-        }
-
-        .instr {
-            text-align: center;
-            color: #ffffff;
-            font-size: 0.9rem;
-            margin-bottom: 25px;
-            font-style: italic;
-        }
-
-        /* Carruseles Dinámicos */
-        .carousel-wrapper {
-            position: relative;
-            width: 100%;
+        /* Estructura de Carrusel */
+        .section-title { font-size: 22px; color: var(--muu-yellow); text-transform: uppercase; margin-bottom: 25px; letter-spacing: 2px; }
+        .carousel-container {
+            width: 90%;
             max-width: 500px;
             margin: 0 auto 40px;
             overflow: hidden;
             border-radius: 20px;
-            border: 3px solid var(--primary-yellow);
-            background: var(--dark-gray);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            border: 3px solid var(--muu-yellow);
+            position: relative;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
         }
+        .carousel-track { display: flex; transition: transform 0.6s ease-in-out; }
+        .slide { min-width: 100%; cursor: pointer; }
+        .slide img { width: 100%; display: block; }
 
-        .carousel-track {
-            display: flex;
-            transition: transform 0.6s cubic-bezier(0.45, 0.05, 0.55, 0.95);
-        }
-
-        .carousel-slide {
-            min-width: 100%;
-            cursor: pointer;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            display: block;
-            transition: 0.3s;
-        }
-
-        /* Popup / Ventana de Detalle */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 5000;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.96);
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background: var(--card-bg);
-            max-width: 450px;
-            width: 100%;
-            border-radius: 25px;
-            text-align: center;
-            overflow: hidden;
-            border: 2px solid var(--primary-yellow);
-            animation: zoomIn 0.3s ease;
-        }
-
-        @keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-
-        .modal-body { padding: 30px; }
-        .modal-body h3 { color: var(--primary-yellow); margin-top: 0; text-transform: uppercase; font-size: 1.6rem; }
-        .modal-body p { color: #fff; font-size: 1.1rem; margin-bottom: 20px; }
-
+        /* Botón de Acción */
         .btn-wa {
-            display: inline-block;
-            background: var(--primary-yellow);
-            color: var(--pure-black);
-            padding: 16px 32px;
+            background: var(--muu-yellow);
+            color: #000;
+            padding: 18px 40px;
             text-decoration: none;
             font-weight: 900;
             border-radius: 50px;
-            text-transform: uppercase;
+            display: inline-block;
+            margin: 40px 0;
             transition: 0.3s;
+            text-transform: uppercase;
         }
+        .btn-wa:hover { transform: scale(1.05); background: #fff; }
 
-        .btn-wa:hover { background: #fff; transform: scale(1.05); }
-
-        .close-modal {
-            color: var(--primary-yellow);
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 50px;
-            cursor: pointer;
-        }
-
-        /* Sección de Testimonios */
-        .testimonials {
-            margin-top: 60px;
-            background: var(--dark-gray);
-            padding: 40px 20px;
-            border-radius: 20px;
-            border: 1px solid #333;
-        }
-
-        .test-item {
-            border-left: 4px solid var(--primary-yellow);
-            padding: 15px;
-            margin-bottom: 20px;
-            background: rgba(255,255,255,0.03);
-            color: #ccc;
-            font-style: italic;
-        }
-
-        footer {
-            text-align: center;
-            padding: 60px 20px;
-            border-top: 1px solid #222;
-            color: #444;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 600px) {
-            h2 { font-size: 1.4rem; }
-            .logo { max-width: 200px; }
-        }
+        footer { padding: 40px; color: #444; font-size: 12px; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
 
-    <div class="promo-banner">🔥 10% OFF EN TU PRIMERA COMPRA WEB 🔥</div>
+    <div class="top-banner">Calidad Superior en cada corte • Paysandú, Uruguay</div>
 
     <header>
-        <img src="https://i.ibb.co/8LZB0vZL/retouch-2026020410202911.jpg" alt="MUU Steak House" class="logo">
+        <img src="https://i.ibb.co/8LZB0vZL/retouch-2026020410202911.jpg" class="logo" alt="MUU Steak House">
     </header>
 
-    <div class="container">
-        
-        <section>
-            <h2>Packs Parrilleros</h2>
-            <p class="instr">✨ Toca la imagen para ver descripción ✨</p>
-            <div class="carousel-wrapper">
-                <div class="carousel-track" id="track-packs"></div>
-            </div>
-        </section>
+    <section class="info-block">
+        <h2>Pasión por el Cliente</h2>
+        <p>En <strong>MUU Steak House</strong>, no solo vendemos carne; brindamos una experiencia personalizada. [span_0](start_span)Nos dedicamos a entender el gusto de cada cliente para asegurar que cada pieza que llega a su mesa sea exactamente lo que buscaba.[span_0](end_span)</p>
+    </section>
 
-        <section>
-            <h2>Milanesas Artesanales</h2>
-            <p class="instr">✨ Listas para freír - Carne, Pollo y Cerdo ✨</p>
-            <div class="carousel-wrapper">
-                <div class="carousel-track" id="track-milas"></div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Cortes Premium</h2>
-            <div class="carousel-wrapper">
-                <div class="carousel-track" id="track-cortes"></div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Elaborados de Autor</h2>
-            <div class="carousel-wrapper">
-                <div class="carousel-track" id="track-elaborados"></div>
-            </div>
-        </section>
-
-        <section class="testimonials">
-            <h2>Lo que dicen nuestros clientes</h2>
-            <div class="test-item">"La calidad de la carne es insuperable. El pack de vacío estaba súper tierno." <strong>- Juan P.</strong></div>
-            <div class="test-item">"Excelente atención. Las milanesas de pollo son las favoritas de los chicos." <strong>- María S.</strong></div>
-        </section>
-
-    </div>
-
-    <div id="modal" class="modal">
-        <span class="close-modal" onclick="closeModal()">&times;</span>
-        <div class="modal-content">
-            <img id="modalImg" src="" style="width:100%; border-bottom: 2px solid var(--primary-yellow);">
-            <div class="modal-body">
-                <h3 id="modalTitle"></h3>
-                <p id="modalDesc"></p>
-                <a id="waLink" href="" class="btn-wa" target="_blank">PEDIR POR WHATSAPP</a>
-            </div>
+    <div class="section-title">Nuestros Packs Parrilleros</div>
+    <div class="carousel-container">
+        <div class="carousel-track" id="track-packs">
+            <div class="slide"><img src="https://i.ibb.co/sJs7gVsr/chorizos.jpg"></div>
+            <div class="slide"><img src="https://i.ibb.co/M0sygrz/vacio.jpg"></div>
+            <div class="slide"><img src="https://i.ibb.co/XrGVGc4h/asado.jpg"></div>
         </div>
     </div>
 
+    <section class="info-block" style="background: #0a0a0a;">
+        <h2>Atención 100% Personalizada</h2>
+        <p>Creemos en el trato directo. [span_1](start_span)Por eso, nuestro servicio es artesanal y humano: seleccionamos la mercadería, preparamos tus pedidos con cuidado extremo y te asesoramos para que tu asado o comida diaria sea un éxito total.[span_1](end_span)</p>
+    </section>
+
+    <div class="section-title">Milanesas Artesanales</div>
+    <div class="carousel-container">
+        <div class="carousel-track" id="track-milas">
+            <div class="slide"><img src="https://i.ibb.co/rGZWFCqt/carne.jpg"></div>
+            <div class="slide"><img src="https://i.ibb.co/LXGfsTGt/pollo.jpg"></div>
+            <div class="slide"><img src="https://i.ibb.co/Lzjt6DmF/cerdo.jpg"></div>
+        </div>
+    </div>
+
+    <section class="info-block">
+        <h2>Compromiso con la Excelencia</h2>
+        <p>Trabajamos con terneras seleccionadas y cortes de exportación. [span_2](start_span)Cada pieza en nuestra vitrina pasa por un riguroso control de calidad, garantizando ternura y sabor inigualable en todo Paysandú.[span_2](end_span)</p>
+    </section>
+
+    <div class="section-title">Cortes de Selección Premium</div>
+    <div class="carousel-container">
+        <div class="carousel-track" id="track-premium">
+            <div class="slide"><img src="https://i.ibb.co/zTHzRyJg/premium1.jpg"></div>
+            <div class="slide"><img src="https://i.ibb.co/Jjz9K46G/premium2.jpg"></div>
+            <div class="slide"><img src="https://i.ibb.co/zV806qYt/premium3.jpg"></div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/59892918013" class="btn-wa">Hacer pedido por WhatsApp</a>
+
+    <footer>
+        © 2026 MUU STEAK HOUSE - DISEÑADO POR MARTÍNEZ & MARTÍNEZ MARKETING DIGITAL
+    </footer>
+
     <script>
-        // DATOS DE PACKS ORDENADOS (Chorizos -> Vacío -> Asado -> Cordero)
-        const packsData = [
-            { url: 'https://i.ibb.co/sJs7gVsr/chorizos.jpg', title: 'Pack de Chorizos', desc: 'Chorizos de elaboración propia con pura carne seleccionada. El toque inicial perfecto para tu parrilla.' },
-            { url: 'https://i.ibb.co/M0sygrz/vacio.jpg', title: 'Pack de Vacío', desc: 'Manta de vacío premium. Tierno, jugoso y con el dorado justo para exigentes.' },
-            { url: 'https://i.ibb.co/XrGVGc4h/asado.jpg', title: 'Pack Asado de Tira', desc: 'El clásico infaltable de exportación. Carne de primera con el corte justo para el fuego.' },
-            { url: 'https://i.ibb.co/BVPXLJ3v/cordero.jpg', title: 'Pack de Cordero', desc: 'Oferta Especial: Costilla, Paleta y Pernil de cordero fresco. ¡Calidad premium al mejor precio!' }
-        ];
-
-        // DATOS DE MILANESAS (Carne -> Pollo -> Cerdo)
-        const milasData = [
-            { url: 'https://i.ibb.co/rGZWFCqt/carne.jpg', title: 'Milanesas de Carne', desc: 'Elaboradas con nalga o bola de lomo seleccionada. Tiernas y listas para la sartén.' },
-            { url: 'https://i.ibb.co/LXGfsTGt/pollo.jpg', title: 'Milanesas de Pollo', desc: 'Supremas de pollo frescas rebozadas con nuestra receta secreta de especias.' },
-            { url: 'https://i.ibb.co/Lzjt6DmF/cerdo.jpg', title: 'Milanesas de Cerdo', desc: 'Una opción gourmet y diferente. Lomo de cerdo magro y súper tierno.' }
-        ];
-
-        const placeholder = [{ url: 'https://via.placeholder.com/600x600/121212/ffcc00?text=Proximamente', title: 'Próximamente', desc: 'Estamos preparando más delicias para vos.' }];
-
-        function initCarousel(id, data) {
+        function runCarousel(id, count) {
             const track = document.getElementById(id);
-            if(!track) return;
-            track.innerHTML = '';
-            data.forEach(item => {
-                const slide = document.createElement('div');
-                slide.className = 'carousel-slide';
-                slide.onclick = () => openModal(item.url, item.title, item.desc);
-                slide.innerHTML = `<img src="${item.url}">`;
-                track.appendChild(slide);
-            });
-            let idx = 0;
+            let index = 0;
             setInterval(() => {
-                idx = (idx + 1) % data.length;
-                track.style.transform = `translateX(-${idx * 100}%)`;
+                index = (index + 1) % count;
+                track.style.transform = `translateX(-${index * 100}%)`;
             }, 3500);
         }
 
-        function openModal(url, title, desc) {
-            document.getElementById('modalImg').src = url;
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalDesc').innerText = desc;
-            document.getElementById('waLink').href = `https://wa.me/59892918013?text=Hola%20MUU!%20Quiero%20el%20${encodeURIComponent(title)}`;
-            document.getElementById('modal').style.display = 'flex';
-        }
-
-        function closeModal() { document.getElementById('modal').style.display = 'none'; }
-
-        // ARRANCAR TODO
-        initCarousel('track-packs', packsData);
-        initCarousel('track-milas', milasData);
-        initCarousel('track-cortes', placeholder);
-        initCarousel('track-elaborados', placeholder);
+        // Iniciar todos los carruseles
+        runCarousel('track-packs', 3);
+        runCarousel('track-milas', 3);
+        runCarousel('track-premium', 3);
     </script>
+
 </body>
 </html>
