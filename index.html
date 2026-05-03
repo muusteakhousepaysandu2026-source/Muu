@@ -69,7 +69,6 @@
             font-style: italic;
         }
 
-        /* Diseño del Carrusel */
         .carousel-wrapper {
             position: relative;
             width: 100%;
@@ -96,7 +95,6 @@
             display: block;
         }
 
-        /* Popup / Modal */
         .modal {
             display: none;
             position: fixed;
@@ -173,7 +171,7 @@
 
         <section>
             <h2>Milanesas Artesanales</h2>
-            <p class="instr">✨ Calidad de hogar en tu mesa ✨</p>
+            <p class="instr">✨ Carne, Pollo y Cerdo - Listas para freír ✨</p>
             <div class="carousel-wrapper">
                 <div class="carousel-track" id="track-milas"></div>
             </div>
@@ -208,48 +206,10 @@
     </div>
 
     <script>
-        // DATOS DE LOS PACKS (ORDENADOS SEGÚN TU PEDIDO)
+        // DATOS DE LOS PACKS
         const packs = [
             { url: 'https://i.ibb.co/sJs7gVsr/chorizos.jpg', title: 'Pack de Chorizos', desc: 'Chorizos de elaboración propia, pura carne.' },
             { url: 'https://i.ibb.co/M0sygrz/vacio.jpg', title: 'Pack de Vacío', desc: 'Manta de vacío seleccionada, terna y jugosa.' },
             { url: 'https://i.ibb.co/XrGVGc4h/asado.jpg', title: 'Pack Asado de Tira', desc: 'El clásico de la parrilla con el mejor corte.' },
-            { url: 'https://i.ibb.co/BVPXLJ3v/cordero.jpg', title: 'Pack de Cordero', desc: 'Costilla, paleta y pernil de cordero fresco.' }
-        ];
-
-        // Rellenos temporales para las otras categorías
-        const placeholder = [{ url: 'https://via.placeholder.com/600x600/000/fc0?text=Proximamente', title: 'Muy Pronto', desc: 'Estamos preparando las mejores fotos.' }];
-
-        function initCarousel(id, data) {
-            const track = document.getElementById(id);
-            data.forEach(item => {
-                const slide = document.createElement('div');
-                slide.className = 'carousel-slide';
-                slide.onclick = () => openModal(item.url, item.title, item.desc);
-                slide.innerHTML = `<img src="${item.url}">`;
-                track.appendChild(slide);
-            });
-            let index = 0;
-            setInterval(() => {
-                index = (index + 1) % data.length;
-                track.style.transform = `translateX(-${index * 100}%)`;
-            }, 3000);
-        }
-
-        function openModal(url, title, desc) {
-            document.getElementById('modalImg').src = url;
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalDesc').innerText = desc;
-            document.getElementById('waLink').href = `https://wa.me/59892918013?text=Hola%20MUU!%20Quiero%20el%20${encodeURIComponent(title)}`;
-            document.getElementById('modal').style.display = 'flex';
-        }
-
-        function closeModal() { document.getElementById('modal').style.display = 'none'; }
-
-        // Inicializar todos
-        initCarousel('track-packs', packs);
-        initCarousel('track-milas', placeholder);
-        initCarousel('track-premium', placeholder);
-        initCarousel('track-elaborados', placeholder);
-    </script>
-</body>
-</html>
+            { url
+        
