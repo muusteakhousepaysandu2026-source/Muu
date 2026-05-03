@@ -3,204 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MUU Steakhouse | Carnicería Premium Paysandú</title>
+    <title>MUU Steak House - Experiencia Carnicería Premium</title>
     <style>
         :root {
-            --gold: #d4af37;
-            --dark-bg: #050505;
-            --card-bg: #121212;
-            --text-color: #e0e0e0;
+            --primary-red: #d32f2f;
+            --dark-bg: #111111;
+            --card-bg: #1a1a1a;
+            --light-text: #ffffff;
+            --gold-accent: #d4af37;
+            --whatsapp-green: #25d366;
         }
 
         body {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Playfair Display', serif, 'Segoe UI', Arial;
             background-color: var(--dark-bg);
-            color: var(--text-color);
+            color: var(--light-text);
             margin: 0;
             padding: 0;
             line-height: 1.8;
         }
 
-        header {
+        /* Banner de Descuento */
+        .promo-banner {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 15px 0;
             text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://i.ibb.co/9mWr3ZkT/IMG-20260424-WA0063.jpg');
-            background-size: cover;
-            background-position: center;
-            border-bottom: 3px solid var(--gold);
+            font-weight: bold;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 10;
         }
 
-        h1 { font-size: 3rem; letter-spacing: 8px; color: var(--gold); margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); text-transform: uppercase; }
-        .tagline { font-style: italic; font-size: 1.2rem; color: #fff; margin-top: 15px; letter-spacing: 2px; }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        /* Video Banner Header con Logo */
+        .video-header {
+            position: relative;
+            width: 100%;
+            height: 85vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 6px solid var(--primary-red);
         }
 
-        .copy-section {
+        .video-header iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 56.25vw;
+            min-height: 85vh;
+            min-width: 151vh;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            margin: 60px 0;
+            z-index: 2;
             padding: 20px;
         }
 
-        .copy-section h2 {
-            color: var(--gold);
-            font-size: 2rem;
+        .logo-header {
+            max-width: 250px;
+            height: auto;
             margin-bottom: 20px;
-            text-transform: uppercase;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.8));
         }
 
-        .copy-section p {
-            font-size: 1.2rem;
-            color: #bbb;
-            max-width: 650px;
-            margin: 0 auto;
-        }
-
-        /* Marcos de Fotos */
-        .photo-frame {
-            width: 100%;
-            height: 450px;
-            border: 1px solid #222;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-            background: #000;
-        }
-
-        .photo-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 1.5s ease;
-        }
-
-        .location-box {
-            background: var(--card-bg);
-            padding: 40px;
-            border-top: 2px solid var(--gold);
-            margin-top: 50px;
-            text-align: center;
-        }
-
-        .btn-whatsapp {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 18px 40px;
-            background-color: var(--gold);
-            color: black;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 2px;
-            transition: 0.3s;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-        }
-
-        .btn-whatsapp:hover {
-            background-color: #f1c40f;
-            transform: scale(1.05);
-        }
-
-        footer {
-            padding: 60px 20px;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #444;
-            background: #000;
-        }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            .photo-frame { height: 350px; }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>MUU STEAKHOUSE</h1>
-        <p class="tagline">EL ARTE DEL CORTE PREMIUM</p>
-    </header>
-
-    <div class="container">
-        
-        <div class="copy-section">
-            <h2>La búsqueda de la perfección</h2>
-            <p>En MUU Steakhouse, entendemos que no busca simplemente un trozo de carne, sino una experiencia gastronómica que comience en su hogar. Seleccionamos cada corte pensando exclusivamente en el momento en que usted disfrute de la excelencia.</p>
-        </div>
-
-        <div class="photo-frame" id="display1"></div>
-
-        <div class="copy-section">
-            <h2>Maestro de su propia mesa</h2>
-            <p>Usted es el protagonista de nuestra historia. Nuestro servicio no termina en la entrega; le asesoramos personalmente sobre el punto ideal para cada corte. Queremos que se sienta seguro de llevar a su mesa la máxima expresión del sabor artesanal.</p>
-        </div>
-
-        <div class="photo-frame" id="display2"></div>
-
-        <div class="copy-section">
-            <h2>Una invitación al buen gusto</h2>
-            <p>Si usted valora la procedencia y el cuidado de lo que come, MUU Steakhouse es su lugar. Visite nuestra carnicería premium en Ituzaingó 898 y permítanos mostrarle la diferencia entre un corte común y una obra de arte culinaria.</p>
-        </div>
-
-        <div class="photo-frame" id="display3"></div>
-
-        <div class="location-box">
-            <p style="color: var(--gold); font-size: 1.6rem; margin: 0; font-weight: bold;">📍 Ituzaingó 898, Paysandú</p>
-            <p style="margin-top: 15px; font-size: 1.2rem;">Le esperamos para brindarle una atención exclusiva y personalizada.</p>
-            <a href="https://wa.me/59896643887" class="btn-whatsapp">Hacer pedido por WhatsApp</a>
-        </div>
-
-    </div>
-
-    <footer>
-        &copy; 2026 MUU STEAKHOUSE PAYSANDÚ | CALIDAD INSUPERABLE EN CADA CORTE
-    </footer>
-
-    <script>
-        // Galería de imágenes completa
-        const images = [
-            "https://i.ibb.co/9mWr3ZkT/IMG-20260424-WA0063.jpg",
-            "https://i.ibb.co/Wj1dpJc/IMG-20260424-WA0060.jpg",
-            "https://i.ibb.co/bRDv80QL/IMG-20260424-WA0058.jpg",
-            "https://i.ibb.co/nMXG041N/IMG-20260424-WA0059.jpg",
-            "https://i.ibb.co/Rp9zWcHT/IMG-20260424-WA0054.jpg",
-            "https://i.ibb.co/chF3j7Gk/IMG-20260424-WA0057.jpg",
-            "https://i.ibb.co/LdBY1RVB/IMG-20260424-WA0053.jpg",
-            "https://i.ibb.co/99xWhPdw/IMG-20260424-WA0047.jpg",
-            "https://i.ibb.co/LDHDQhW2/IMG-20260424-WA0046.jpg",
-            "https://i.ibb.co/rfNTtVRS/IMG-20260424-WA0044.jpg",
-            "https://i.ibb.co/gbJ5qHhW/IMG-20260424-WA0045.jpg",
-            "https://i.ibb.co/ZR9wvp2P/IMG-20260424-WA0051.jpg",
-            "https://i.ibb.co/Qv26g0j9/IMG-20260424-WA0042.jpg"
-        ];
-
-        let offset = 0;
-
-        function updatePhotos() {
-            const frames = ['display1', 'display2', 'display3'];
-            frames.forEach((id, i) => {
-                const container = document.getElementById(id);
-                const imgIndex = (offset + i) % images.length;
-                container.innerHTML = `<img src="${images[imgIndex]}" style="opacity: 0.1">`;
-                
-                setTimeout(() => {
-                    const img = container.querySelector('img');
-                    if(img) img.style.opacity = '1';
-                }, 100);
-            });
-        }
-
-        // Rotación automática cada 5 segundos
-        setInterval(() => {
-            offset = (offset + 1) % images.length;
-            updatePhotos();
-        }, 5000);
-
-        updatePhotos();
-    </script>
-</body>
-</html>
+        .video-overlay p {
+            font-size: 1.6rem;
+            max-width: 800px
+            
