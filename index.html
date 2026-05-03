@@ -3,88 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MUU Steak House - Experiencia Carnicería Premium</title>
+    <title>MUU Steak House - Experiencia Premium</title>
     <style>
         :root {
             --primary-red: #d32f2f;
-            --dark-bg: #111111;
-            --card-bg: #1a1a1a;
-            --light-text: #ffffff;
+            --dark-bg: #0a0a0a;
             --gold-accent: #d4af37;
-            --whatsapp-green: #25d366;
         }
 
-        body {
-            font-family: 'Playfair Display', serif, 'Segoe UI', Arial;
-            background-color: var(--dark-bg);
-            color: var(--light-text);
+        body, html {
             margin: 0;
             padding: 0;
-            line-height: 1.8;
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            font-family: 'Playfair Display', serif, Arial;
+            overflow-x: hidden;
         }
 
-        /* Banner de Descuento */
+        /* Banner Descuento superior */
         .promo-banner {
             background-color: var(--primary-red);
             color: white;
-            padding: 15px 0;
+            padding: 12px 0;
             text-align: center;
             font-weight: bold;
-            font-size: 1.4rem;
-            letter-spacing: 1px;
+            font-size: 1.1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
             text-transform: uppercase;
-            position: relative;
-            z-index: 10;
         }
 
-        /* Video Banner Header con Logo */
-        .video-header {
+        /* Cabecera con Video */
+        .hero-video {
             position: relative;
             width: 100%;
             height: 85vh;
-            overflow: hidden;
+            background: #111 url('https://i.ibb.co/8LZB0vZL/retouch-2026020410202911.jpg') center/contain no-repeat;
             display: flex;
-            justify-content: center;
             align-items: center;
-            border-bottom: 6px solid var(--primary-red);
+            justify-content: center;
+            overflow: hidden;
+            border-bottom: 5px solid var(--primary-red);
         }
 
-        .video-header iframe {
+        /* Iframe de Vimeo ajustado para fondo */
+        .hero-video iframe {
             position: absolute;
             top: 50%;
             left: 50%;
             width: 100vw;
-            height: 56.25vw;
+            height: 56.25vw; /* Ratio 16:9 */
             min-height: 85vh;
             min-width: 151vh;
             transform: translate(-50%, -50%);
+            z-index: 1;
             pointer-events: none;
         }
 
-        .video-overlay {
+        .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            z-index: 2;
-            padding: 20px;
         }
 
-        .logo-header {
-            max-width: 250px;
+        .logo-main {
+            max-width: 280px;
             height: auto;
             margin-bottom: 20px;
-            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.8));
+            filter: drop-shadow(0 0 15px rgba(0,0,0,0.7));
         }
 
-        .video-overlay p {
-            font-size: 1.6rem;
-            max-width: 800px
-            
+        .cta-button {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 4px;
+            transition: 0.3s;
+            z-index: 3;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            background-color: #b71c1c;
+        }
+
+        .content-section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .experience-title {
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+        }
+
+        /* WhatsApp Flotante */
+        .wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        .wa-float:hover { transform: scale(1.1); }
+
+        @media (max-width: 768px) {
+            .logo-main { max-width: 200px; }
+            .experience-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="promo-banner">🔥 10% OFF EN TU PRIMERA COMPRA WEB 🔥</div>
+
+    <section class="hero-video">
+        <iframe src="https://player.vimeo.com/video/1080802619?background=1&autoplay=1&loop=1&autopause=0" frameborder="0" allow="autoplay; fullscreen"></iframe>
+        
+        <div class="overlay">
+            <img src="https://i.ibb.co/8LZB0vZL/retouch-2026020410202911.jpg" alt="MUU Steak House" class="logo-main">
+            <p style="font-size: 1.4rem; color: var(--gold-accent); margin-bottom: 30px; font-style: italic;">Prioridad en atención, excelencia en carne.</p>
+            <a href="https://wa.me/59892918013?text=Hola%20MUU!%20Vi%20la%20web%20y%20quiero%20hacer%20un%20pedido." class="cta-button">Hacer Pedido</a>
+        </div>
+    </section>
+
+    <div class="content-section">
+        <h2 class="experience-title">Mucho más que una carnicería</h2>
+        <p style="font-size: 1.2rem; line-height: 1.6; color: #ccc;">
+            En MUU Steak House, la calidad de la carne es el resultado de nuestra obsesión por el detalle. 
+            Brindamos una experiencia de compra personalizada para que cada asado sea un éxito garantizado.
+        </p>
+    </div>
+
+    <a href="https://wa.me/59892918013" class="wa-float" target="_blank">
+        <svg style="width:35px;height:35px" viewBox="0 0 24 24"><path fill="white" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.66 20.15 9.3 19.8 8.1 19.14L7.81 18.96L4.69 19.79L5.53 16.73L5.33 16.41C4.62 15.28 4.25 13.97 4.25 12.63C4.25 12.4 4.25 12.16 4.25 11.91C4.25 7.65 7.74 4.16 12.05 4.16V3.67M15.79 13.14C15.61 13.05 14.73 12.61 14.56 12.56C14.4 12.5 14.28 12.47 14.16 12.64C14.04 12.82 13.7 13.22 13.6 13.34C13.5 13.45 13.4 13.47 13.22 13.38C13.04 13.3 12.46 13.1 11.77 12.48C11.23 12 10.87 11.4 10.76 11.22C10.66 11.04 10.75 10.95 10.84 10.86C10.92 10.77 11.03 10.64 11.11 10.55C11.2 10.45 11.23 10.39 11.29 10.27C11.35 10.15 11.32 10.04 11.28 9.95C11.24 9.86 10.9 9.04 10.76 8.68C10.62 8.33 10.48 8.38 10.37 8.38C10.27 8.38 10.15 8.37 10.04 8.37C9.92 8.37 9.73 8.42 9.57 8.59C9.4 8.76 8.94 9.2 8.94 10.08C8.94 10.96 9.58 11.81 9.67 11.93C9.76 12.05 10.93 13.85 12.72 14.62C13.15 14.81 13.48 14.91 13.74 15C14.17 15.13 14.56 15.11 14.88 15.06C15.23 15.01 15.96 14.62 16.11 14.2C16.27 13.78 16.27 13.42 16.22 13.34C16.17 13.26 16.06 13.22 15.88 13.14V13.14Z"/></svg>
+    </a>
+
+</body>
+</html>
