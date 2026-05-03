@@ -3,160 +3,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MUU Steak House - Paysandú</title>
+    <title>MUU Steak House - Packs Parrilleros</title>
     <style>
+        :root {
+            --primary-yellow: #ffcc00; /* Amarillo intenso MUU */
+            --pure-black: #000000;
+            --dark-gray: #1a1a1a;
+            --card-bg: #1e1e1e;
+            --whatsapp-green: #25d366;
+        }
+
         body {
-            background-color: #000000;
-            color: #ffcc00;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--pure-black);
+            color: var(--primary-yellow); /* Letras amarillas por defecto */
             margin: 0;
             padding: 0;
-            text-align: center;
+            overflow-x: hidden;
         }
 
-        /* Banner de arriba */
-        .promo {
-            background-color: #ffcc00;
-            color: #000;
+        /* Banner Descuento Amarillo y Negro */
+        .promo-banner {
+            background: var(--primary-yellow);
+            color: var(--pure-black);
+            text-align: center;
             padding: 15px;
-            font-weight: bold;
+            font-weight: 900;
             text-transform: uppercase;
             font-size: 1.2rem;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--primary-yellow);
         }
 
-        /* Cabecera con Logo */
+        /* Header con Logo */
         header {
+            background: var(--pure-black);
             padding: 50px 20px;
-            border-bottom: 3px solid #ffcc00;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-yellow);
         }
 
-        .logo-principal {
+        .logo {
             max-width: 280px;
             height: auto;
+            filter: drop-shadow(0 0 15px rgba(255, 204, 0, 0.3));
         }
 
         .container {
-            padding: 40px 20px;
-            max-width: 800px;
+            max-width: 1200px;
             margin: auto;
+            padding: 60px 20px;
         }
 
         h2 {
-            font-size: 2rem;
+            text-align: center;
+            color: var(--primary-yellow);
             text-transform: uppercase;
-            border-bottom: 2px solid #ffcc00;
-            display: inline-block;
+            letter-spacing: 3px;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .instr {
+            text-align: center;
+            color: #ffffff; /* Instrucciones en blanco para contraste */
+            font-size: 1rem;
             margin-bottom: 30px;
+            font-style: italic;
         }
 
-        /* Fotos de los Packs */
-        .seccion-fotos {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .foto-item {
+        /* Carrusel Automático Inteligente Premium */
+        .carousel-wrapper {
+            position: relative;
             width: 100%;
-            max-width: 500px;
-            border: 3px solid #ffcc00;
-            border-radius: 15px;
+            max-width: 600px; /* Tamaño optimizado para web */
+            margin: auto;
             overflow: hidden;
-            background-color: #111;
+            border-radius: 20px;
+            border: 3px solid var(--primary-yellow);
+            background: var(--dark-gray);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
 
-        .foto-item img {
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .carousel-slide img {
             width: 100%;
             display: block;
+            transition: 0.4s;
         }
 
-        .descripcion {
-            padding: 15px;
-            background: #111;
-            color: #fff;
+        .carousel-slide:hover img {
+            transform: scale(1.03);
+            filter: brightness(0.7);
         }
 
-        /* Botón WhatsApp */
-        .btn-wa {
-            background-color: #ffcc00;
-            color: #000;
-            padding: 20px 40px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 50px;
-            display: inline-block;
-            margin: 40px 0;
-            font-size: 1.3rem;
+        /* Modal / Popup Premium */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: var(--dark-gray);
+            max-width: 500px;
+            width: 100%;
+            border-radius: 20px;
+            text-align: center;
+            overflow: hidden;
+            border: 2px solid var(--primary-yellow);
+            animation: modalAppear 0.4s ease-out;
+        }
+
+        @keyframes modalAppear {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-img { width: 100%; border-bottom: 2px solid var(--primary-yellow); }
+
+        .modal-text {
+            padding: 30px;
+        }
+
+        .modal-text h3 {
+            color: var(--primary-yellow);
+            margin-top: 0;
+            font-size: 1.8rem;
             text-transform: uppercase;
         }
 
-        .testimonios {
-            background-color: #111;
-            padding: 40px 20px;
-            margin-top: 50px;
-            border-top: 1px solid #333;
+        .modal-text p {
+            color: #ffffff; /* Texto de descripción en blanco */
+            font-size: 1.1rem;
+            line-height: 1.5;
         }
 
-        .testimonio-texto {
-            font-style: italic;
-            color: #ccc;
-            margin-bottom: 20px;
+        .btn-wa {
+            display: inline-block;
+            background: var(--primary-yellow);
+            color: var(--pure-black);
+            padding: 18px 35px;
+            text-decoration: none;
+            font-weight: 900;
+            border-radius: 50px;
+            margin-top: 20px;
+            text-transform: uppercase;
+            transition: 0.3s;
         }
+
+        .btn-wa:hover {
+            background: #ffffff;
+            transform: scale(1.05);
+        }
+
+        .close-modal {
+            color: var(--primary-yellow);
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            font-size: 50px;
+            cursor: pointer;
+            z-index: 3100;
+        }
+
+        /* WhatsApp Flotante Amarillo */
+        .wa-float {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: var(--primary-yellow);
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        .wa-float svg { fill: var(--pure-black); }
+
+        .wa-float:hover { transform: translateY(-10px) scale(1.1); }
 
         footer {
-            padding: 60px;
-            color: #444;
-            font-size: 0.9rem;
+            background: var(--pure-black);
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 2px solid var(--primary-yellow);
+            color: var(--primary-yellow);
+        }
+
+        @media (max-width: 600px) {
+            .logo { max-width: 200px; }
+            h2 { font-size: 1.6rem; }
+            .btn-wa { width: 80%; }
         }
     </style>
 </head>
 <body>
 
-    <div class="promo">🔥 10% DE DESCUENTO EN TU PRIMERA COMPRA WEB 🔥</div>
+    <div class="promo-banner">🔥 10% DE DESCUENTO EN TU PRIMERA COMPRA WEB 🔥</div>
 
     <header>
-        <img src="https://i.ibb.co/8LZB0vZL/retouch-2026020410202911.jpg" alt="MUU Steak House" class="logo-principal">
-        <p style="font-style: italic; margin-top: 15px;">Atención Personalizada • Paysandú</p>
+        <img src="https://i.ibb.co/8LZB0vZL/retouch-2026020410202911.jpg" alt="MUU Steak House" class="logo">
     </header>
 
     <div class="container">
         <h2>Packs Parrilleros</h2>
-        
-        <div class="seccion-fotos">
-            <div class="foto-item">
-                <img src="https://i.ibb.co/BVPXLJ3v/foto1.jpg" alt="Chorizos Artesanales">
-                <div class="descripcion">Chorizos de elaboración propia, pura carne.</div>
-            </div>
+        <p class="instr">✨ Toca la imagen para ver el detalle y pedir ✨</p>
 
-            <div class="foto-item">
-                <img src="https://i.ibb.co/sJs7gVsr/foto2.jpg" alt="Corte Premium">
-                <div class="descripcion">Cortes seleccionados con la mejor cobertura de grasa.</div>
-            </div>
+        <div class="carousel-wrapper">
+            <div class="carousel-track" id="track">
+                </div>
+        </div>
+    </div>
 
-            <div class="foto-item">
-                <img src="https://i.ibb.co/M0sygrz/foto3.jpg" alt="Asado de Tira">
-                <div class="descripcion">Asado de tira premium, corte tierno garantizado.</div>
-            </div>
-
-            <div class="foto-item">
-                <img src="https://i.ibb.co/XrGVGc4h/foto4.jpg" alt="Ofertas Cordero">
-                <div class="descripcion">Cordero seleccionado: Costilla, Paleta y Pernil.</div>
+    <div id="myModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImg" src="" class="modal-img">
+            <div class="modal-text">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDesc"></p>
+                <a id="waLink" href="" class="btn-wa" target="_blank">PEDIR POR WHATSAPP</a>
             </div>
         </div>
-
-        <a href="https://wa.me/59892918013?text=Hola%20MUU!%20Quiero%20hacer%20un%20pedido" class="btn-wa">Hacer pedido por WhatsApp</a>
     </div>
 
-    <div class="testimonios">
-        <h3>Lo que dicen nuestros clientes</h3>
-        <p class="testimonio-texto">"Excelente calidad, el asado se cortaba solo. Muy buena atención."</p>
-        <p class="testimonio-texto">"Los mejores chorizos de Paysandú por lejos. 100% recomendado."</p>
-    </div>
+    <a href="https://wa.me/59892918013" class="wa-float" target="_blank">
+        <svg width="40" height="40" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.66 20.15 9.3 19.8 8.1 19.14L7.81 18.96L4.69 19.79L5.53 16.73L5.33 16.41C4.62 15.28 4.25 13.97 4.25 12.63C4.25 12.4 4.25 12.16 4.25 11.91C4.25 7.65 7.74 4.16 12.05 4.16V3.67M15.79 13.14C15.61 13.05 14.73 12.61 14.56 12.56C14.4 12.5 14.28 12.47 14.16 12.64C14.04 12.82 13.7 13.22 13.6 13.34C13.5 13.45 13.4 13.47 13.22 13.38C13.04 13.3 12.46 13.1 11.77 12.48C11.23 12 10.87 11.4 10.76 11.22C10.66 11.04 10.75 10.95 10.84 10.86C10.92 10.77 11.03 10.64 11.11 10.55C11.2 10.45 11.23 10.39 11.29 10.27C11.35 10.15 11.32 10.04 11.28 9.95C11.24 9.86 10.9 9.04 10.76 8.68C10.62 8.33 10.48 8.38 10.37 8.38C10.27 8.38 10.15 8.37 10.04 8.37C9.92 8.37 9.73 8.42 9.57 8.59C9.4 8.76 8.94 9.2 8.94 10.08C8.94 10.96 9.58 11.81 9.67 11.93C9.76 12.05 10.93 13.85 12.72 14.62C13.15 14.81 13.48 14.91 13.74 15C14.17 15.13 14.56 15.11 14.88 15.06C15.23 15.01 15.96 14.62 16.11 14.2C16.27 13.78 16.27 13.42 16.22 13.34C16.17 13.26 16.06 13.22 15.88 13.14V13.14Z"/></svg>
+    </a>
 
     <footer>
-        &copy; 2026 MUU STEAK HOUSE - Expertos en Carne
+        <p><strong>MUU STEAK HOUSE - PAYSANDÚ</strong></p>
+        <p>Experiencia Carnicería Premium</p>
+        <p style="margin-top: 20px; font-size: 0.8rem;">&copy; 2026 Calidad Garantizada.</p>
     </footer>
 
+    <script>
+        // CONFIGURACIÓN DE TUS FOTOS ORDENADAS
+        // 1. Chorizos, 2. Vacío, 3. Asado de Tira, 4. Cordero
+        const products = [
+            { url: 'https://i.ibb.co/BVPXLJ3v/foto1.jpg', title: 'Pack Chorizos Artesanales', desc: 'Elaboración propia con pura carne seleccionada. El sabor auténtico para arrancar tu asado.' },
+            { url: 'https://i.ibb.co/sJs7gVsr/foto2.jpg', title: 'Manta de Vacío Premium', desc: 'Corte tierno y jugoso con la cobertura de grasa justa para un dorado perfecto a la parrilla.' },
+            { url: 'https://i.ibb.co/M0sygrz/foto3.jpg', title: 'Asado de Tira Especial', desc: 'Tiras finas de costilla premium. Ternura garantizada y el sabor inconfundible de la mejor carne.' },
+            { url: 'https://i.ibb.co/XrGVGc4h/foto4.jpg', title: 'Pack Cordero Especial', desc: 'Costilla, paleta y pernil de cordero fresco. ¡Calidad premium al mejor precio sin vencimiento!' }
+        ];
+
+        const track = document.getElementById('track');
+        products.forEach((p) => {
+            const slide = document.createElement('div');
+            slide.className = 'carousel-slide';
+            slide.onclick = () => openModal(p.url, p.title, p.desc);
+            slide.innerHTML = `<img src="${p.url}">`;
+            track.appendChild(slide);
+        });
+
+        let currentIndex = 0;
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % products.length;
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }, 3000); // Cambia cada 3 segundos
+
+        function openModal(url, title, desc) {
+            document.getElementById('modalImg').src = url;
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('waLink').href = `https://wa.me/59892918013?text=Hola%20MUU!%20Quiero%20pedir%20informaci%C3%B3n%20sobre%20el%20${encodeURIComponent(title)}`;
+            document.getElementById('myModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
