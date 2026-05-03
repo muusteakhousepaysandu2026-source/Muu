@@ -22,7 +22,7 @@
             line-height: 1.6;
         }
 
-        /* Banner Promocional */
+        /* Banner Promocional Amarillo */
         .promo-banner {
             background: var(--primary-yellow);
             color: var(--pure-black);
@@ -37,18 +37,18 @@
             z-index: 1000;
         }
 
-        /* Header / Logo */
+        /* Header con Logo - SIN VIDEO */
         header {
             padding: 60px 20px;
             text-align: center;
-            border-bottom: 2px solid var(--primary-yellow);
-            background: linear-gradient(to bottom, #000, #111);
+            border-bottom: 3px solid var(--primary-yellow);
+            background: var(--pure-black);
         }
 
         .logo {
-            max-width: 260px;
+            max-width: 280px;
             height: auto;
-            filter: drop-shadow(0 0 10px rgba(255, 204, 0, 0.4));
+            filter: drop-shadow(0 0 15px rgba(255, 204, 0, 0.5));
         }
 
         .container {
@@ -61,7 +61,7 @@
             text-align: center;
             color: var(--primary-yellow);
             text-transform: uppercase;
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-top: 60px;
             margin-bottom: 5px;
             letter-spacing: 2px;
@@ -70,27 +70,27 @@
         .instr {
             text-align: center;
             color: #ffffff;
-            font-size: 0.9rem;
+            font-size: 1rem;
             margin-bottom: 30px;
             font-style: italic;
         }
 
-        /* Carruseles Dinámicos */
+        /* Carruseles Dinámicos Inteligentes */
         .carousel-wrapper {
             position: relative;
             width: 100%;
             max-width: 550px;
             margin: 0 auto;
             overflow: hidden;
-            border-radius: 15px;
-            border: 2px solid var(--primary-yellow);
+            border-radius: 20px;
+            border: 3px solid var(--primary-yellow);
             background: var(--dark-gray);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
         }
 
         .carousel-track {
             display: flex;
-            transition: transform 0.6s ease-in-out;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .carousel-slide {
@@ -101,14 +101,15 @@
         .carousel-slide img {
             width: 100%;
             display: block;
-            transition: 0.3s;
+            transition: 0.4s;
         }
 
         .carousel-slide:hover img {
-            filter: brightness(0.6);
+            filter: brightness(0.7);
+            transform: scale(1.02);
         }
 
-        /* Modal Popup */
+        /* Modal Popup Premium */
         .modal {
             display: none;
             position: fixed;
@@ -127,8 +128,112 @@
             background: var(--card-bg);
             max-width: 450px;
             width: 100%;
-            border-radius: 20px;
+            border-radius: 25px;
             text-align: center;
             overflow: hidden;
-            border
-        
+            border: 2px solid var(--primary-yellow);
+            animation: zoomIn 0.3s;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-img { width: 100%; border-bottom: 2px solid var(--primary-yellow); }
+        .modal-body { padding: 30px; }
+        .modal-body h3 { color: var(--primary-yellow); margin-top: 0; font-size: 1.8rem; text-transform: uppercase; }
+        .modal-body p { color: #fff; font-size: 1.2rem; }
+
+        .btn-wa {
+            display: inline-block;
+            background: var(--primary-yellow);
+            color: var(--pure-black);
+            padding: 18px 35px;
+            text-decoration: none;
+            font-weight: 900;
+            border-radius: 50px;
+            margin-top: 20px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .btn-wa:hover { background: #fff; transform: scale(1.05); }
+
+        .close-modal {
+            color: var(--primary-yellow);
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 50px;
+            cursor: pointer;
+        }
+
+        /* Sección de Testimonios */
+        .testimonials {
+            margin-top: 100px;
+            background: var(--dark-gray);
+            padding: 50px 25px;
+            border-radius: 25px;
+            border: 1px solid #333;
+        }
+
+        .testimonial-item {
+            border-left: 5px solid var(--primary-yellow);
+            padding: 25px;
+            margin-bottom: 25px;
+            background: rgba(255,255,255,0.02);
+            font-style: italic;
+            color: #ddd;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-item strong {
+            color: var(--primary-yellow);
+            display: block;
+            margin-top: 15px;
+            font-style: normal;
+            font-weight: bold;
+        }
+
+        /* WhatsApp Flotante */
+        .wa-float {
+            position: fixed;
+            bottom: 35px;
+            right: 35px;
+            background: var(--primary-yellow);
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        .wa-float:hover { transform: scale(1.1); }
+
+        footer {
+            text-align: center;
+            padding: 80px 20px;
+            color: #666;
+            font-size: 1rem;
+            border-top: 1px solid #222;
+        }
+
+        @media (max-width: 600px) {
+            h2 { font-size: 1.8rem; }
+            .logo { max-width: 220px; }
+            .carousel-wrapper { border-radius: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="promo-banner">🔥 10% DE DESCUENTO EN TU PRIMERA COMPRA WEB 🔥</div>
+
+    <header>
+        <img src="
+            
